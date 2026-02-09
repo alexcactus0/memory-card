@@ -1,0 +1,45 @@
+@font-face {
+  font-family: "sponge";
+  src: url("../fonts/Some\ Time\ Later.otf");
+}
+
+@font-face {
+  font-family: "game";
+  src: url("../fonts/Simple\ Games.ttf");
+}
+
+.infoCont {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: grid;
+  grid-template-rows: 10em 5em 10em;
+  place-content: center;
+  max-width: 35em;
+}
+
+.spTitle {
+  font-family: "game";
+  /* font-weight: lighter; */
+  font-size: 3em;
+  place-content: end;
+}
+
+.memoryTitle {
+  font-family: "sponge";
+  font-size: 5em;
+  grid-row: 2;
+}
+
+.instructions {
+  border: solid 1px black;
+  max-width: 25em;
+  max-height: 7em;
+  font-size: 1.2em;
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  grid-template-rows: none;
+}
