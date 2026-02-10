@@ -1,17 +1,4 @@
-@font-face {
-  font-family: "sponge";
-  src: url("../fonts/Some\ Time\ Later.otf");
-}
-
-@font-face {
-  font-family: "game";
-  src: url("../fonts/Simple\ Games.ttf");
-}
-
-@font-face {
-  font-family: "roboto";
-  src: url("../fonts/Roboto-SemiBold.ttf");
-}
+@import "./fontStyles.css";
 
 .infoCont {
   display: flex;
@@ -20,7 +7,7 @@
 
 header {
   display: grid;
-  grid-template-rows: 10em 5em 10em;
+  grid-template-rows: 5em 5em 20em;
   place-content: center;
   max-width: 35em;
 }
@@ -33,41 +20,61 @@ header {
 
 .memoryTitle {
   font-family: "sponge";
-  font-size: 5em;
+  font-size: 5.5em;
   grid-row: 2;
+}
+
+.instCont {
+  display: grid;
+  place-items: center;
 }
 
 .instructions {
   display: grid;
-  grid-template-columns: 17em 2em;
-  grid-template-rows: 2em 5em;
-  place-content: center;
-  border: solid 3px brown;
-  border-radius: 7px;
-  max-width: 20em;
-  max-height: 7em;
-  font-size: 1.2em;
+  grid-template-columns: 1fr 3em;
+  grid-template-rows: 1em 1fr;
+  padding: 0.8em 0.8em 1em 1em;
+  width: 17em;
   background-color: bisque;
+  border: 3px solid brown;
+  border-radius: 8px;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.3);
+  font-size: 1.2em;
+  position: relative;
 }
 
 .inText {
-  text-align: center;
-  font-family: "roboto";
+  grid-column: 1 / 2;
   grid-row: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  font-family: "roboto", sans-serif;
 }
 
-.inHighlight {
+mark {
   color: red;
+  background: none;
+  font-weight: 700;
 }
 
 .exMark {
   grid-column: 2;
-  padding: 10px;
+  grid-row: 1;
+  align-self: start;
+  justify-self: end;
+  width: 1.5em;
+  height: 1.5em;
+  display: grid;
+  place-content: center;
 }
 
 .diffbutt {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 1.5em;
+  max-width: 30em;
 }
 
 .easyCont,
@@ -96,7 +103,9 @@ header {
   font-weight: 900;
   color: #111;
   border: 4px solid #000;
-
+  cursor:
+    url("../assets/cursor1.png") 16 16,
+    auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -108,6 +117,16 @@ header {
   transition:
     transform 0.1s ease,
     box-shadow 0.1s ease;
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.1s ease;
+}
+
+.easy:hover,
+.medium:hover,
+.hard:hover {
+  transform: rotate(3deg) scale(1.05);
 }
 
 .easy:active,
@@ -122,11 +141,9 @@ header {
 .easy {
   background: linear-gradient(145deg, #8cf0b7, #1db15a);
 }
-
 .medium {
   background: linear-gradient(145deg, #ffe27a, #f1b80c);
 }
-
 .hard {
   background: linear-gradient(145deg, #ff8a7a, #d63b2c);
 }
@@ -136,13 +153,11 @@ header {
     0 6px 0 rgba(0, 0, 0, 0.4),
     0 0 12px rgba(29, 177, 90, 0.6);
 }
-
 .medium:hover {
   box-shadow:
     0 6px 0 rgba(0, 0, 0, 0.4),
     0 0 12px rgba(241, 184, 12, 0.6);
 }
-
 .hard:hover {
   box-shadow:
     0 6px 0 rgba(0, 0, 0, 0.4),

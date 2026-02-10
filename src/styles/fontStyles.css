@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "sponge";
+  src: url("../fonts/Some\ Time\ Later.otf");
+}
+
+@font-face {
+  font-family: "game";
+  src: url("../fonts/Simple\ Games.ttf");
+}
+
+@font-face {
+  font-family: "roboto";
+  src: url("../fonts/Roboto-SemiBold.ttf");
+}
