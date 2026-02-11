@@ -1,5 +1,7 @@
+@import "./infoSide.css";
 @import "./game.css";
 @import "./score.css";
+@import "./cards.css";
 
 * {
   margin: 0;
@@ -22,7 +24,7 @@ body {
     auto;
 }
 
-.game {
+.menu {
   display: grid;
   grid-template-columns: 35em 40em 20em;
 }

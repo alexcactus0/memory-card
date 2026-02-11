@@ -1,0 +1,75 @@
+.charPatrickCont,
+.charSandyCont,
+.charKrabsCont,
+.charSpongeCont,
+.charSquidCont,
+.charGaryCont {
+  width: 15em;
+  height: 20em;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  border: 4px solid #1b5e63;
+  border-radius: 14px;
+  cursor: pointer;
+  padding-top: 0.5em;
+}
+
+.charPatrick,
+.charSandy,
+.charKrabs,
+.charSponge,
+.charSquid,
+.charGary {
+  width: 90%;
+  height: 70%;
+  background-color: #4fb9b1;
+  border-radius: 14px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border: 2px solid #1b5e63;
+}
+
+.charPatrick {
+  background-image: url("../assets/characters/patrick.png");
+}
+
+.charSandy {
+  background-image: url("../assets/characters/sandy.png");
+}
+
+.charKrabs {
+  background-image: url("../assets/characters/krabs.png");
+}
+
+.charSponge {
+  background-image: url("../assets/characters/sponge.png");
+}
+
+.charSquid {
+  background-image: url("../assets/characters/squid.png");
+}
+
+.charGary {
+  background-image: url("../assets/characters/gary.png");
+}
+
+.charName p {
+  font-weight: 800;
+  color: #083a3d;
+  font-size: 1.5em;
+}
+
+.charPatrickCont:hover,
+.charSandyCont:hover,
+.charKrabsCont:hover,
+.charSpongeCont:hover,
+.charSquidCont:hover,
+.charGaryCont:hover {
+  border: solid 4px yellow;
+}
