@@ -1,14 +1,23 @@
 import Menu from "./components/menu.jsx";
 import Game from "./components/game.jsx";
+import { Results } from "./components/score.jsx";
 import { useState } from "react";
 
 function App() {
-  const [isGameStarted, setIsGameStarted] = useState(false);
+  const [screen, setScreen] = useState("menu");
+  const [level, setLevel] = useState("easy");
 
   return (
-    <>
-      {!isGameStarted ? <Menu setIsGameStarted={setIsGameStarted} /> : <Game />}
-    </>
+    <div className="gameWrapper">
+      {screen === "menu" && <Menu setScreen={setScreen} setLevel={setLevel} />}
+
+      {screen === "game" && (
+        <>
+          <Game setScreen={setScreen} level={level} />
+          <Results />
+        </>
+      )}
+    </div>
   );
 }
 

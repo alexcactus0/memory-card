@@ -1,13 +1,13 @@
 import exMark from "../assets/exMark.svg";
 
-function InfoSide({ setIsGameStarted }) {
+function InfoSide({ setScreen, setLevel }) {
   return (
     <div className="infoCont">
       <header>
         <h3 className="spTitle">Spongebob</h3>
         <h1 className="memoryTitle">MEMORY GAME</h1>
         <Instructions />
-        <DifficultyButtons setIsGameStarted={setIsGameStarted} />
+        <DifficultyButtons setScreen={setScreen} setLevel={setLevel} />
       </header>
     </div>
   );
@@ -31,21 +31,30 @@ function Instructions() {
   );
 }
 
-function DifficultyButtons({ setIsGameStarted }) {
+function DifficultyButtons({ setScreen, setLevel }) {
   return (
     <div className="diffbutt">
       <div className="easyCont">
-        <button onClick={() => setIsGameStarted(true)} className="easy">
+        <button
+          onClick={() => (setScreen("game"), setLevel("easy"))}
+          className="easy"
+        >
           EASY
         </button>
       </div>
       <div className="mediumCont">
-        <button onClick={() => setIsGameStarted(true)} className="medium">
+        <button
+          onClick={() => (setScreen("game"), setLevel("medium"))}
+          className="medium"
+        >
           MEDIUM
         </button>
       </div>
       <div className="hardCont">
-        <button onClick={() => setIsGameStarted(true)} className="hard">
+        <button
+          onClick={() => (setScreen("game"), setLevel("hard"))}
+          className="hard"
+        >
           HARD
         </button>
       </div>

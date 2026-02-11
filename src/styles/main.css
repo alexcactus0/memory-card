@@ -27,6 +27,7 @@ body {
 .menu {
   display: grid;
   grid-template-columns: 35em 40em 20em;
+  grid-template-rows: 34em 5em 5em;
 }
 
 .gameScore {

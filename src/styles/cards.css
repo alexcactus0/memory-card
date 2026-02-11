@@ -1,21 +1,24 @@
+@import "./fontStyles.css";
+
 .charPatrickCont,
 .charSandyCont,
 .charKrabsCont,
 .charSpongeCont,
 .charSquidCont,
 .charGaryCont {
-  width: 15em;
-  height: 20em;
+  width: 17em;
+  height: 25em;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-
-  border: 4px solid #1b5e63;
+  background-color: #fff7e6;
+  border: 4px solid #fff7e6;
   border-radius: 14px;
   cursor: pointer;
   padding-top: 0.5em;
+  box-shadow: 0 6px 0 #45c9e9;
 }
 
 .charPatrick,
@@ -26,7 +29,8 @@
 .charGary {
   width: 90%;
   height: 70%;
-  background-color: #4fb9b1;
+  background-color: #37cdf3;
+  border: 2px solid #0f4c5c;
   border-radius: 14px;
   background-size: contain;
   background-position: center;
@@ -61,8 +65,10 @@
 
 .charName p {
   font-weight: 800;
-  color: #083a3d;
-  font-size: 1.5em;
+  color: #083344;
+  font-size: 1.2em;
+  font-family: "roboto", sans-serif;
+  height: 3em;
 }
 
 .charPatrickCont:hover,
@@ -72,4 +78,7 @@
 .charSquidCont:hover,
 .charGaryCont:hover {
   border: solid 4px yellow;
+  cursor:
+    url("../assets/cursor1.png") 16 16,
+    auto;
 }

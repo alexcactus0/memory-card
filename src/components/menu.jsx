@@ -1,10 +1,10 @@
 import { InfoSide } from "./infoSide";
 import { Results } from "./score";
 
-function Menu({ setIsGameStarted }) {
+function Menu({ setScreen, setLevel }) {
   return (
     <div className="menu">
-      <InfoSide setIsGameStarted={setIsGameStarted} />
+      <InfoSide setScreen={setScreen} setLevel={setLevel} />
       <Results />
     </div>
   );
