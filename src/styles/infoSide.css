@@ -50,7 +50,6 @@ header {
   align-items: center;
   justify-content: center;
   text-align: left;
-  font-family: "roboto", sans-serif;
 }
 
 mark {
@@ -94,7 +93,9 @@ mark {
 
 .easy,
 .medium,
-.hard {
+.hard,
+.returnBtn,
+.againBtn {
   width: 6em;
   height: 6em;
   border-radius: 14px;
@@ -131,7 +132,9 @@ mark {
 
 .easy:active,
 .medium:active,
-.hard:active {
+.hard:active,
+.returnBtn:active,
+.againBtn:active {
   transform: translateY(4px);
   box-shadow:
     0 2px 0 rgba(0, 0, 0, 0.4),
@@ -141,10 +144,12 @@ mark {
 .easy {
   background: linear-gradient(145deg, #8cf0b7, #1db15a);
 }
-.medium {
+.medium,
+.returnBtn {
   background: linear-gradient(145deg, #ffe27a, #f1b80c);
 }
-.hard {
+.hard,
+.againBtn {
   background: linear-gradient(145deg, #ff8a7a, #d63b2c);
 }
 

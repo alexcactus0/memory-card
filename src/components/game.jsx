@@ -1,7 +1,14 @@
 import { EasyCards, MediumCards, HardCards } from "./cards";
 import returnArrow from "../assets/returnArrow.svg";
 
-function Game({ setScreen, level, setIncreaseScore, resetScore }) {
+function Game({
+  setScreen,
+  level,
+  setIncreaseScore,
+  resetScore,
+  setWinModal,
+  setLoseModal,
+}) {
   return (
     <>
       <nav className="returnToMenu">
@@ -17,27 +24,27 @@ function Game({ setScreen, level, setIncreaseScore, resetScore }) {
           </div>
         </div>
       </nav>
-      <div className="cardsCont">
-        {level === "easy" ? (
-          <EasyCards
-            key={level}
-            setIncreaseScore={setIncreaseScore}
-            resetScore={resetScore}
-          />
-        ) : level === "medium" ? (
-          <MediumCards
-            key={level}
-            setIncreaseScore={setIncreaseScore}
-            resetScore={resetScore}
-          />
-        ) : (
-          <HardCards
-            key={level}
-            setIncreaseScore={setIncreaseScore}
-            resetScore={resetScore}
-          />
-        )}
-      </div>
+      {level === "easy" ? (
+        <EasyCards
+          key={level}
+          setIncreaseScore={setIncreaseScore}
+          resetScore={resetScore}
+          setWinModal={setWinModal}
+          setLoseModal={setLoseModal}
+        />
+      ) : level === "medium" ? (
+        <MediumCards
+          key={level}
+          setIncreaseScore={setIncreaseScore}
+          resetScore={resetScore}
+        />
+      ) : (
+        <HardCards
+          key={level}
+          setIncreaseScore={setIncreaseScore}
+          resetScore={resetScore}
+        />
+      )}
     </>
   );
 }

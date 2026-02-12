@@ -7,9 +7,22 @@
   grid-template-columns: 35em 40em 20em;
   grid-template-rows: 5em 30em 8em;
   place-content: center;
+  /* position: relative; */
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
 }
 
-.cardsCont {
+.gameWrapper.menu {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.gameWrapper.game {
+  animation: screenEnter 0.4s ease forwards;
+}
+
+.cardsGrid {
   display: flex;
   grid-row: 2;
   grid-column: span 3;
@@ -17,6 +30,15 @@
   align-items: end;
   gap: 2em;
   padding: 0 1em 0 1em;
+  animation: cardsFade 0.4s ease forwards;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.cardsGrid.shuffling {
+  opacity: 0.5;
+  transform: scale(0.98);
 }
 
 .returnToMenu {
@@ -55,21 +77,84 @@
 }
 
 dialog {
-  width: 50em;
-  height: 20em;
-  background-color: rgb(235, 203, 44);
-  border: 7px solid black;
-  top: 25%;
-  left: 24%;
+  animation: modalEnter 0.3s ease forwards;
+}
+
+.winDialog,
+.loseDialog {
   display: grid;
   place-content: center;
   border-radius: 15px;
-  z-index: 999;
+  border: 10px solid black;
+  z-index: 1001;
+  background-color: rgb(251, 208, 156);
+}
+
+.shufDialog {
+  width: 50em;
+  height: 20em;
+  top: 35%;
+  left: 28%;
+  border: none;
+  background: none;
+  z-index: 1001;
+  animation:
+    shuffleAppear 0.15s ease-out forwards,
+    shufflePulse 0.7s ease-in-out infinite;
 }
 
 .shufText h1 {
-  font-size: 6em;
+  font-size: 10em;
   font-family: "game";
+  color: yellow;
+}
+
+.winDialog,
+.loseDialog {
+  top: 25%;
+  left: 35%;
+  height: 20em;
+  width: 30em;
+}
+
+.winModalForm,
+.loseModalForm {
+  display: grid;
+  place-content: center;
+  grid-template-rows: 3em 10em 5em;
+  height: 18em;
+  width: 28em;
+}
+
+.winBtns,
+.loseBtns {
+  height: 4em;
+  grid-row: 3;
+  display: grid;
+  place-content: center;
+}
+
+.winWrapper,
+.loseWrapper {
+  display: flex;
+  gap: 2em;
+}
+
+.winTitle h2,
+.loseTitle h2 {
+  font-size: 2.5em;
+}
+
+.winText h2 {
+  text-align: center;
+}
+
+.winText,
+.winTitle,
+.loseTitle,
+.loseText {
+  display: grid;
+  place-content: center;
 }
 
 .overlay {
@@ -78,7 +163,86 @@ dialog {
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(0.8em);
   -webkit-backdrop-filter: blur(0.8em);
-  pointer-events: none;
+  pointer-events: auto;
   transition: 0.2s;
-  /* z-index: 999; */
+  /* height: 100vh;
+  width: 100vw; */
+  z-index: 1000;
+}
+
+/* Shuffle animations */
+
+@keyframes shuffleAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shufflePulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Game animation  */
+
+@keyframes screenEnter {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* cards Container animation */
+
+@keyframes cardsFade {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Cards shuffle animation */
+
+@keyframes modalEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.overlay {
+  animation: overlayFade 0.3s ease forwards;
+}
+
+@keyframes overlayFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
