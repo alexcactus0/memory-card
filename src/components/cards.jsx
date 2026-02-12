@@ -90,7 +90,7 @@ function EasyCards({ setIncreaseScore, resetScore }) {
     setTimeout(() => {
       setCards((prevCards) => shuffleArray(prevCards));
       setIsShuffling(false);
-    }, 3000000);
+    }, 700);
   }
 
   return (
@@ -114,16 +114,18 @@ function EasyCards({ setIncreaseScore, resetScore }) {
   );
 }
 
-function MediumCards({ setIncreaseScore }) {
+function MediumCards({ setIncreaseScore, resetScore }) {
   const [cards, setCards] = useState(MEDIUM_CARDS);
   const [clickedIds, setClickedIds] = useState([]);
+
+  const [isShuffling, setIsShuffling] = useState(false);
 
   function handleCardClick(id) {
     setIncreaseScore((prev) => prev + 1);
     setClickedIds((prevClicked) => {
       if (prevClicked.includes(id)) {
         alert("You clicked the same card! Game over!");
-        setIncreaseScore();
+        resetScore();
         return [];
       }
 
@@ -131,14 +133,19 @@ function MediumCards({ setIncreaseScore }) {
 
       if (newClicked.length === cards.length) {
         alert("YOu Won!");
-        setIncreaseScore();
+        resetScore();
         return [];
       }
 
       return newClicked;
     });
 
-    setCards((prevCards) => shuffleArray(prevCards));
+    setIsShuffling(true);
+
+    setTimeout(() => {
+      setCards((prevCards) => shuffleArray(prevCards));
+      setIsShuffling(false);
+    }, 700);
   }
 
   return (
@@ -152,20 +159,28 @@ function MediumCards({ setIncreaseScore }) {
           onClick={() => handleCardClick(card.id)}
         />
       ))}
+      {isShuffling && (
+        <>
+          <ShufflingModal />
+          <div className="overlay show"></div>
+        </>
+      )}
     </>
   );
 }
 
-function HardCards({ setIncreaseScore }) {
+function HardCards({ setIncreaseScore, resetScore }) {
   const [cards, setCards] = useState(HARD_CARDS);
   const [clickedIds, setClickedIds] = useState([]);
+
+  const [isShuffling, setIsShuffling] = useState(false);
 
   function handleCardClick(id) {
     setIncreaseScore((prev) => prev + 1);
     setClickedIds((prevClicked) => {
       if (prevClicked.includes(id)) {
         alert("You clicked the same card! Game over!");
-        setIncreaseScore();
+        resetScore();
         return [];
       }
 
@@ -173,14 +188,19 @@ function HardCards({ setIncreaseScore }) {
 
       if (newClicked.length === cards.length) {
         alert("YOu Won!");
-        setIncreaseScore();
+        resetScore();
         return [];
       }
 
       return newClicked;
     });
 
-    setCards((prevCards) => shuffleArray(prevCards));
+    setIsShuffling(true);
+
+    setTimeout(() => {
+      setCards((prevCards) => shuffleArray(prevCards));
+      setIsShuffling(false);
+    }, 700);
   }
 
   return (
@@ -194,6 +214,12 @@ function HardCards({ setIncreaseScore }) {
           onClick={() => handleCardClick(card.id)}
         />
       ))}
+      {isShuffling && (
+        <>
+          <ShufflingModal />
+          <div className="overlay show"></div>
+        </>
+      )}
     </>
   );
 }

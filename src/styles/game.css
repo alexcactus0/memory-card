@@ -57,9 +57,10 @@
 dialog {
   width: 50em;
   height: 20em;
-  background-color: red;
-  top: 30%;
-  left: 25%;
+  background-color: rgb(235, 203, 44);
+  border: 7px solid black;
+  top: 25%;
+  left: 24%;
   display: grid;
   place-content: center;
   border-radius: 15px;

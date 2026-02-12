@@ -25,9 +25,17 @@ function Game({ setScreen, level, setIncreaseScore, resetScore }) {
             resetScore={resetScore}
           />
         ) : level === "medium" ? (
-          <MediumCards key={level} setIncreaseScore={setIncreaseScore} />
+          <MediumCards
+            key={level}
+            setIncreaseScore={setIncreaseScore}
+            resetScore={resetScore}
+          />
         ) : (
-          <HardCards key={level} setIncreaseScore={setIncreaseScore} />
+          <HardCards
+            key={level}
+            setIncreaseScore={setIncreaseScore}
+            resetScore={resetScore}
+          />
         )}
       </div>
     </>
