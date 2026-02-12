@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ShufflingModal } from "./modals";
 
 function Card({ className, charName, text, onClick }) {
   return (
@@ -58,14 +59,18 @@ const EASY_CARDS = BASE_CARDS.slice(0, 4);
 const MEDIUM_CARDS = BASE_CARDS.slice(0, 5);
 const HARD_CARDS = BASE_CARDS.slice(0, 6);
 
-function EasyCards() {
+function EasyCards({ setIncreaseScore, resetScore }) {
   const [cards, setCards] = useState(EASY_CARDS);
   const [clickedIds, setClickedIds] = useState([]);
 
+  const [isShuffling, setIsShuffling] = useState(false);
+
   function handleCardClick(id) {
+    setIncreaseScore((prev) => prev + 1);
     setClickedIds((prevClicked) => {
       if (prevClicked.includes(id)) {
         alert("You clicked the same card! Game over!");
+        resetScore();
         return [];
       }
 
@@ -73,13 +78,19 @@ function EasyCards() {
 
       if (newClicked.length === cards.length) {
         alert("YOu Won!");
+        resetScore();
         return [];
       }
 
       return newClicked;
     });
 
-    setCards((prevCards) => shuffleArray(prevCards));
+    setIsShuffling(true);
+
+    setTimeout(() => {
+      setCards((prevCards) => shuffleArray(prevCards));
+      setIsShuffling(false);
+    }, 3000000);
   }
 
   return (
@@ -93,18 +104,26 @@ function EasyCards() {
           onClick={() => handleCardClick(card.id)}
         />
       ))}
+      {isShuffling && (
+        <>
+          <ShufflingModal />
+          <div className="overlay show"></div>
+        </>
+      )}
     </>
   );
 }
 
-function MediumCards() {
+function MediumCards({ setIncreaseScore }) {
   const [cards, setCards] = useState(MEDIUM_CARDS);
   const [clickedIds, setClickedIds] = useState([]);
 
   function handleCardClick(id) {
+    setIncreaseScore((prev) => prev + 1);
     setClickedIds((prevClicked) => {
       if (prevClicked.includes(id)) {
         alert("You clicked the same card! Game over!");
+        setIncreaseScore();
         return [];
       }
 
@@ -112,6 +131,7 @@ function MediumCards() {
 
       if (newClicked.length === cards.length) {
         alert("YOu Won!");
+        setIncreaseScore();
         return [];
       }
 
@@ -136,14 +156,16 @@ function MediumCards() {
   );
 }
 
-function HardCards() {
+function HardCards({ setIncreaseScore }) {
   const [cards, setCards] = useState(HARD_CARDS);
   const [clickedIds, setClickedIds] = useState([]);
 
   function handleCardClick(id) {
+    setIncreaseScore((prev) => prev + 1);
     setClickedIds((prevClicked) => {
       if (prevClicked.includes(id)) {
         alert("You clicked the same card! Game over!");
+        setIncreaseScore();
         return [];
       }
 
@@ -151,6 +173,7 @@ function HardCards() {
 
       if (newClicked.length === cards.length) {
         alert("YOu Won!");
+        setIncreaseScore();
         return [];
       }
 

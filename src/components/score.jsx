@@ -1,22 +1,22 @@
-function Results() {
+function Results({ count }) {
   return (
     <>
-      <Score />
+      <Score count={count} />
       <Footer />
     </>
   );
 }
 
-function Score() {
+function Score({ count }) {
   return (
     <aside className="gameScoreWrapper">
       <div className="gameScore">
         <div className="scoreCont">
-          <p>SCORE: 0</p>
+          <p>SCORE: {count || 0}</p>
         </div>
         <div className="scoreLine"></div>
         <div className="bestScoreCont">
-          <p>BEST SCORE: 0</p>
+          <p>BEST SCORE: 6</p>
         </div>
       </div>
     </aside>

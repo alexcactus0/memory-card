@@ -1,12 +1,15 @@
 import { EasyCards, MediumCards, HardCards } from "./cards";
 import returnArrow from "../assets/returnArrow.svg";
 
-function Game({ setScreen, level }) {
+function Game({ setScreen, level, setIncreaseScore, resetScore }) {
   return (
-    <div className="game">
+    <>
       <nav className="returnToMenu">
         <div className="returnContWrapper">
-          <div className="returnArrow" onClick={() => setScreen("menu")}>
+          <div
+            className="returnArrow"
+            onClick={() => (setScreen("menu"), resetScore())}
+          >
             <img src={returnArrow} alt="Return to Menu Arrow" />
           </div>
           <div className="returnTextWrapper">
@@ -16,14 +19,18 @@ function Game({ setScreen, level }) {
       </nav>
       <div className="cardsCont">
         {level === "easy" ? (
-          <EasyCards />
+          <EasyCards
+            key={level}
+            setIncreaseScore={setIncreaseScore}
+            resetScore={resetScore}
+          />
         ) : level === "medium" ? (
-          <MediumCards />
+          <MediumCards key={level} setIncreaseScore={setIncreaseScore} />
         ) : (
-          <HardCards />
+          <HardCards key={level} setIncreaseScore={setIncreaseScore} />
         )}
       </div>
-    </div>
+    </>
   );
 }
 
