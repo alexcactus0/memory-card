@@ -7,7 +7,7 @@
   grid-template-columns: 35em 40em 20em;
   grid-template-rows: 5em 30em 8em;
   place-content: center;
-  /* position: relative; */
+  position: relative;
   transition:
     opacity 0.4s ease,
     transform 0.4s ease;

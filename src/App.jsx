@@ -35,13 +35,13 @@ function App() {
           <Results count={count} />
           {winModal && (
             <>
-              <WinModal />
+              <WinModal setScreen={setScreen} setWinModal={setWinModal} />
               <div className="overlay show"></div>
             </>
           )}
           {loseModal && (
             <>
-              <LoseModal />
+              <LoseModal setScreen={setScreen} setLoseModal={setLoseModal} />
               <div className="overlay show"></div>
             </>
           )}

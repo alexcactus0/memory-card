@@ -28,7 +28,10 @@ function Footer() {
     <>
       <footer>
         <p>
-          BUILT AND MAINTAINED <br /> BY <mark>ALEXCACTUS0</mark>
+          BUILT AND MAINTAINED <br /> BY
+          <mark>
+            <a href="https://github.com/alexcactus0"> ALEXCACTUS0</a>
+          </mark>
         </p>
       </footer>
     </>

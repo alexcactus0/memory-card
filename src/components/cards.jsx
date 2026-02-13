@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ShufflingModal, WinModal, LoseModal } from "./modals";
+import { ShufflingModal } from "./modals";
 
 function Card({ className, charName, text, onClick }) {
   return (
@@ -33,13 +33,13 @@ const BASE_CARDS = [
     id: 3,
     className: "charKrabsCont",
     charName: "charKrabs",
-    text: "MR: KRABS",
+    text: "MR. KRABS",
   },
   {
     id: 4,
     className: "charSpongeCont",
     charName: "charSponge",
-    text: "SpongeBob",
+    text: "SPONGEBOB",
   },
   {
     id: 5,
@@ -121,7 +121,12 @@ function EasyCards({
   );
 }
 
-function MediumCards({ setIncreaseScore, resetScore }) {
+function MediumCards({
+  setIncreaseScore,
+  resetScore,
+  setWinModal,
+  setLoseModal,
+}) {
   const [cards, setCards] = useState(MEDIUM_CARDS);
   const [clickedIds, setClickedIds] = useState([]);
 
@@ -131,7 +136,7 @@ function MediumCards({ setIncreaseScore, resetScore }) {
     setIncreaseScore((prev) => prev + 1);
     setClickedIds((prevClicked) => {
       if (prevClicked.includes(id)) {
-        alert("You clicked the same card! Game over!");
+        setLoseModal(true);
         resetScore();
         return [];
       }
@@ -139,7 +144,7 @@ function MediumCards({ setIncreaseScore, resetScore }) {
       const newClicked = [...prevClicked, id];
 
       if (newClicked.length === cards.length) {
-        alert("YOu Won!");
+        setWinModal(true);
         resetScore();
         return [];
       }
@@ -157,15 +162,17 @@ function MediumCards({ setIncreaseScore, resetScore }) {
 
   return (
     <>
-      {cards.map((card) => (
-        <Card
-          key={card.id}
-          className={card.className}
-          charName={card.charName}
-          text={card.text}
-          onClick={() => handleCardClick(card.id)}
-        />
-      ))}
+      <div className={`cardsGrid ${isShuffling ? "shuffling" : ""}`}>
+        {cards.map((card) => (
+          <Card
+            key={card.id}
+            className={card.className}
+            charName={card.charName}
+            text={card.text}
+            onClick={() => handleCardClick(card.id)}
+          />
+        ))}
+      </div>
       {isShuffling && (
         <>
           <ShufflingModal />
@@ -176,7 +183,12 @@ function MediumCards({ setIncreaseScore, resetScore }) {
   );
 }
 
-function HardCards({ setIncreaseScore, resetScore }) {
+function HardCards({
+  setIncreaseScore,
+  resetScore,
+  setWinModal,
+  setLoseModal,
+}) {
   const [cards, setCards] = useState(HARD_CARDS);
   const [clickedIds, setClickedIds] = useState([]);
 
@@ -186,7 +198,7 @@ function HardCards({ setIncreaseScore, resetScore }) {
     setIncreaseScore((prev) => prev + 1);
     setClickedIds((prevClicked) => {
       if (prevClicked.includes(id)) {
-        alert("You clicked the same card! Game over!");
+        setLoseModal(true);
         resetScore();
         return [];
       }
@@ -194,7 +206,7 @@ function HardCards({ setIncreaseScore, resetScore }) {
       const newClicked = [...prevClicked, id];
 
       if (newClicked.length === cards.length) {
-        alert("YOu Won!");
+        setWinModal(true);
         resetScore();
         return [];
       }
@@ -212,15 +224,17 @@ function HardCards({ setIncreaseScore, resetScore }) {
 
   return (
     <>
-      {cards.map((card) => (
-        <Card
-          key={card.id}
-          className={card.className}
-          charName={card.charName}
-          text={card.text}
-          onClick={() => handleCardClick(card.id)}
-        />
-      ))}
+      <div className={`cardsGrid ${isShuffling ? "shuffling" : ""}`}>
+        {cards.map((card) => (
+          <Card
+            key={card.id}
+            className={card.className}
+            charName={card.charName}
+            text={card.text}
+            onClick={() => handleCardClick(card.id)}
+          />
+        ))}
+      </div>
       {isShuffling && (
         <>
           <ShufflingModal />

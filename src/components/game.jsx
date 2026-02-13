@@ -37,12 +37,16 @@ function Game({
           key={level}
           setIncreaseScore={setIncreaseScore}
           resetScore={resetScore}
+          setWinModal={setWinModal}
+          setLoseModal={setLoseModal}
         />
       ) : (
         <HardCards
           key={level}
           setIncreaseScore={setIncreaseScore}
           resetScore={resetScore}
+          setWinModal={setWinModal}
+          setLoseModal={setLoseModal}
         />
       )}
     </>

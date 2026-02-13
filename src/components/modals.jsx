@@ -12,7 +12,7 @@ function ShufflingModal() {
   );
 }
 
-function LoseModal() {
+function LoseModal({ setScreen, setLoseModal }) {
   return (
     <>
       <dialog className="loseDialog" dataModal open>
@@ -25,8 +25,15 @@ function LoseModal() {
           </div>
           <div className="loseBtns">
             <div className="loseWrapper">
-              <button className="returnBtn">RETURN TO MENU</button>
-              <button className="againBtn">PLAY AGAIN</button>
+              <button
+                className="returnBtn"
+                onClick={() => (setScreen("menu"), setLoseModal(false))}
+              >
+                RETURN TO MENU
+              </button>
+              <button className="againBtn" onClick={() => setLoseModal(false)}>
+                PLAY AGAIN
+              </button>
             </div>
           </div>
         </form>
@@ -35,7 +42,7 @@ function LoseModal() {
   );
 }
 
-function WinModal() {
+function WinModal({ setScreen, setWinModal }) {
   return (
     <>
       <dialog className="winDialog" dataModal open>
@@ -50,8 +57,15 @@ function WinModal() {
           </div>
           <div className="winBtns">
             <div className="winWrapper">
-              <button className="returnBtn">RETURN TO MENU</button>
-              <button className="againBtn">PLAY AGAIN</button>
+              <button
+                className="returnBtn"
+                onClick={() => (setScreen("menu"), setWinModal(false))}
+              >
+                RETURN TO MENU
+              </button>
+              <button className="againBtn" onClick={() => setWinModal(false)}>
+                PLAY AGAIN
+              </button>
             </div>
           </div>
         </form>
