@@ -25,4 +25,4 @@ All card images used in the game are stored locally and were added manually inst
 The goal of this project was to practice managing state and building interactive UI behavior with React.
 
 ## Deloyment
-Deployed on Netlify under the following link: memorygame131.netlify.app
+Deployed on Netlify under the following link: **memorygame131.netlify.app**
