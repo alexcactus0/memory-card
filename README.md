@@ -1,16 +1,28 @@
-# React + Vite
+# React Memory Card Game 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+This project is a memory card game built with React. The goal of the game is to click on different cards without selecting the same one twice. Each correct selection increases the score, while selecting a previously clicked card resets the score.
 
-Currently, two official plugins are available:
+This project was created to practice React hooks, state management, and component-based design.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- Memory card gameplay
+- Randomized card order after each click
+- Current score tracking
+- Best score tracking
+- Game reset when a duplicate card is selected
 
-## React Compiler
+## React Concepts Used
+- useState for managing game state and scores
+- useEffect for handling component behavior
+- Component-based architecture
+- State updates and event handling
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Assets
+All card images used in the game are stored locally and were added manually instead of being fetched from an external API.
 
-## Expanding the ESLint configuration
+## Purpose
+The goal of this project was to practice managing state and building interactive UI behavior with React.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Deloyment
+Deployed on Netlify under the following link: memorygame131.netlify.app
